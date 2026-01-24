@@ -1,0 +1,69 @@
+\begin{tikzpicture}
+  % coordinates
+\coordinate (A4) at (-1.091,-0.703);
+\coordinate (A6) at (1.091,-0.703);
+\coordinate (A1) at (-1.091,0.703);
+\coordinate (A2) at (1.091,0.703);
+\coordinate (A15) at (0.703,0.000);
+\coordinate (A11) at (-0.465,-0.768);
+\coordinate (A10) at (-0.465,0.768);
+\coordinate (A9) at (0.000,0.000);
+\coordinate (A13) at (0.528,-0.872);
+\coordinate (A12) at (0.528,0.872);
+\coordinate (A14) at (-0.857,-0.000);
+\coordinate (A7) at (-1.513,-0.974);
+\coordinate (A8) at (1.513,-0.974);
+\coordinate (A3) at (-1.513,0.974);
+\coordinate (A5) at (1.513,0.974);
+
+  % nodes
+\node (A4) [ball={vdw=0.095,color=tw-gray-300}] at (A4) {};
+\node (A6) [ball={vdw=0.095,color=tw-gray-300}] at (A6) {};
+\node (A1) [ball={vdw=0.095,color=tw-gray-300}] at (A1) {};
+\node (A2) [ball={vdw=0.095,color=tw-gray-300}] at (A2) {};
+  % bonds
+\bond[0.067cm]{A4}[0.092cm]{A11};
+\bond[0.084cm]{A6}[0.112cm]{A15};
+\bond[0.067cm]{A1}[0.092cm]{A10};
+\bond[0.084cm]{A2}[0.112cm]{A15};
+
+  % nodes
+\node (A15) [ball={vdw=0.127,color=tw-rose-500}] at (A15) {};
+  % bonds
+\bond[0.078cm]{A9}[0.090cm]{A15};
+
+  % nodes
+\node (A11) [ball={vdw=0.131,color=tw-rose-500}] at (A11) {};
+\node (A10) [ball={vdw=0.131,color=tw-rose-500}] at (A10) {};
+  % bonds
+\bond[0.098cm]{A9}[0.116cm]{A11};
+\bond[0.098cm]{A9}[0.116cm]{A10};
+
+  % nodes
+\node (A9) [ball={vdw=0.110,color=tw-gray-300}] at (A9) {};
+  % bonds
+\bond[0.098cm]{A9}[0.132cm]{A12};
+\bond[0.098cm]{A9}[0.132cm]{A13};
+\bond[0.078cm]{A9}[0.109cm]{A14};
+
+  % nodes
+\node (A13) [ball={vdw=0.148,color=tw-rose-500}] at (A13) {};
+\node (A12) [ball={vdw=0.148,color=tw-rose-500}] at (A12) {};
+  % bonds
+\bond[0.093cm]{A8}[0.105cm]{A13};
+\bond[0.093cm]{A5}[0.105cm]{A12};
+
+  % nodes
+\node (A14) [ball={vdw=0.154,color=tw-rose-500}] at (A14) {};
+  % bonds
+\bond[0.117cm]{A3}[0.137cm]{A14};
+\bond[0.117cm]{A7}[0.137cm]{A14};
+
+  % nodes
+\node (A7) [ball={vdw=0.132,color=tw-gray-300}] at (A7) {};
+\node (A8) [ball={vdw=0.132,color=tw-gray-300}] at (A8) {};
+\node (A3) [ball={vdw=0.132,color=tw-gray-300}] at (A3) {};
+\node (A5) [ball={vdw=0.132,color=tw-gray-300}] at (A5) {};
+  % bonds
+
+\end{tikzpicture}

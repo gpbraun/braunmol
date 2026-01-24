@@ -1,0 +1,41 @@
+{
+  // CONFIGURAÇÕES DO EDITOR
+  "editor.rulers": [88],
+  "search.exclude": {
+    "**/*.json": true,
+    ".vscode": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.egg-info": true
+  },
+  "editor.wordBasedSuggestions": "off",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "files.associations": {
+    "*.pml": "shellscript"
+  },
+  "editor.formatOnSave": true,
+  // CONFIGURAÕES DAS LINGUAGENS
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    }
+  },
+  // EXTENSÃO: CODE RUNNER
+  "code-runner.runInTerminal": true,
+  "code-runner.ignoreSelection": true,
+  "code-runner.saveAllFilesBeforeRun": true,
+  "code-runner.executorMap": {
+    "shellscript": "cd $dir && pymol -r $workspaceRoot/.pymolrc.py $fileName -qc"
+  }
+}

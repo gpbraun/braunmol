@@ -1,0 +1,25 @@
+\begin{tikzpicture}[xscale=\molscale,yscale=\molscale]
+%% coordinates
+\coordinate (A4) at (0.543,-0.219);
+\coordinate (A5) at (0.271,0.548);
+\coordinate (A6) at (-0.543,0.548);
+\coordinate (A1) at (1.442,-1.457);
+\coordinate (A2) at (0.577,-1.457);
+\coordinate (A3) at (0.288,-0.641);
+
+%% nodes
+\node (A4) [ball={vdw=0.184,color=carbon}] at (A4) {};
+\node (A5) [ball={vdw=0.184,color=carbon}] at (A5) {};
+\node (A6) [ball={vdw=0.184,color=carbon}] at (A6) {};
+%% bonds
+\bond[0.113cm]{A3}[0.106cm]{A4};
+\bond[0.184cm]{A4}[0.184cm]{A5};
+\bond[0.184cm]{A5}[0.184cm]{A6};
+%% nodes
+\node (A1) [ball={vdw=0.196,color=carbon}] at (A1) {};
+\node (A2) [ball={vdw=0.196,color=carbon}] at (A2) {};
+\node (A3) [ball={vdw=0.196,color=carbon}] at (A3) {};
+%% bonds
+\bond[0.196cm]{A1}[0.196cm]{A2};
+\bond[0.196cm]{A2}[0.196cm]{A3};
+\end{tikzpicture}

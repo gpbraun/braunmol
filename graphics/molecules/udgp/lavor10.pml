@@ -1,0 +1,15 @@
+################################
+# udgp.pml
+# 
+# Gabriel Braun, 2025
+################################
+
+run ../../_pymol/pymol_config.py
+
+load lavor10.xyz
+hide everything
+
+ball_and_stick
+
+# save_png
+save_as_tikz

@@ -1,0 +1,48 @@
+\begin{tikzpicture}[xscale=\molscale,yscale=\molscale]
+%% coordinates
+\coordinate (A1) at (-0.945,0.453);
+\coordinate (A3) at (0.117,-0.189);
+\coordinate (A2) at (-0.699,-0.196);
+\coordinate (A4) at (0.399,0.496);
+
+%% nodes
+\node (A1) [ball={vdw=0.179,color=carbon}] at (A1) {};
+%% bonds
+\bond[0.158cm]{A1}[0.163cm]{A2};
+%% nodes
+\node (A3) [ball={vdw=0.185,color=carbon}] at (A3) {};
+\node (A2) [ball={vdw=0.185,color=carbon}] at (A2) {};
+%% bonds
+\bond[0.185cm]{A2}[0.185cm]{A3};
+\bond[0.163cm]{A3}[0.169cm]{A4};
+%% nodes
+\node (A4) [ball={vdw=0.191,color=carbon}] at (A4) {};
+%% bonds
+
+%% ANNOTATIONS
+\begin{scope}[font=\dffamily\bfseries]
+  \node [white] at (A1) {1};
+  \node [white] at (A2) {2};
+  \node [white] at (A3) {3};
+  \node [white] at (A4) {4};
+\end{scope}
+
+\begin{scope}[
+  every node/.append style={tw-pink-600, font=\small},
+  draw=tw-pink-600, thick, CF-CF,
+]
+  \draw [crossing over] (A1) -- node[pos=0.50,above,sloped] { \pu{2,87} } (A4);
+  \draw [crossing over] (A4) -- node[pos=0.35,above,sloped] { \pu{2,45} } (A2);
+  \draw [crossing over] (A1) -- node[pos=0.35,above,sloped] { \pu{2,45} } (A3);
+\end{scope}
+
+\begin{scope}[
+  every node/.append style={tw-pink-600, font=\small},
+]
+  \path (A1) -- node[pos=0.50,below,sloped,yshift=-5pt] { \pu{1,50} } (A2);
+  \path (A2) -- node[pos=0.50,below,sloped,yshift=-5pt] { \pu{1,50} } (A3);
+  \path (A3) -- node[pos=0.50,below,sloped,yshift=-5pt] { \pu{1,50} } (A4);
+\end{scope}
+
+
+\end{tikzpicture}

@@ -1,0 +1,992 @@
+{
+    "H": {
+        "name": "hydrogen",
+        "atomic_number": 1,
+        "block": "s",
+        "group": 1,
+        "period": 1,
+        "vdw": 1.2,
+        "color": "tw_gray_300"
+    },
+    "Li": {
+        "name": "lithium",
+        "atomic_number": 3,
+        "block": "s",
+        "group": 1,
+        "period": 2,
+        "vdw": 1.82,
+        "color": "tw_purple_300"
+    },
+    "Na": {
+        "name": "sodium",
+        "atomic_number": 11,
+        "block": "s",
+        "group": 1,
+        "period": 3,
+        "vdw": 2.27,
+        "color": "tw_purple_300"
+    },
+    "K": {
+        "name": "potassium",
+        "atomic_number": 19,
+        "block": "s",
+        "group": 1,
+        "period": 4,
+        "vdw": 2.75,
+        "color": "tw_purple_300"
+    },
+    "Rb": {
+        "name": "rubidium",
+        "atomic_number": 37,
+        "block": "s",
+        "group": 1,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_purple_300"
+    },
+    "Cs": {
+        "name": "cesium",
+        "atomic_number": 55,
+        "block": "s",
+        "group": 1,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_purple_300"
+    },
+    "Fr": {
+        "name": "francium",
+        "atomic_number": 87,
+        "block": "s",
+        "group": 1,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_purple_300"
+    },
+    "Be": {
+        "name": "beryllium",
+        "atomic_number": 4,
+        "block": "s",
+        "group": 2,
+        "period": 2,
+        "vdw": 2.0,
+        "color": "tw_lime_300"
+    },
+    "Mg": {
+        "name": "magnesium",
+        "atomic_number": 12,
+        "block": "s",
+        "group": 2,
+        "period": 3,
+        "vdw": 1.73,
+        "color": "tw_lime_300"
+    },
+    "Ca": {
+        "name": "calcium",
+        "atomic_number": 20,
+        "block": "s",
+        "group": 2,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_lime_300"
+    },
+    "Sr": {
+        "name": "strontium",
+        "atomic_number": 38,
+        "block": "s",
+        "group": 2,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_emerald_300"
+    },
+    "Ba": {
+        "name": "barium",
+        "atomic_number": 56,
+        "block": "s",
+        "group": 2,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_emerald_300"
+    },
+    "Ra": {
+        "name": "radium",
+        "atomic_number": 88,
+        "block": "s",
+        "group": 2,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_emerald_300"
+    },
+    "B": {
+        "name": "boron",
+        "atomic_number": 5,
+        "block": "p",
+        "group": 13,
+        "period": 2,
+        "vdw": 2.0,
+        "color": "tw_pink_400"
+    },
+    "Al": {
+        "name": "aluminum",
+        "atomic_number": 13,
+        "block": "p",
+        "group": 13,
+        "period": 3,
+        "vdw": 2.0,
+        "color": "tw_gray_300"
+    },
+    "Ga": {
+        "name": "gallium",
+        "atomic_number": 31,
+        "block": "p",
+        "group": 13,
+        "period": 4,
+        "vdw": 1.87,
+        "color": "tw_pink_300"
+    },
+    "In": {
+        "name": "indium",
+        "atomic_number": 49,
+        "block": "p",
+        "group": 13,
+        "period": 5,
+        "vdw": 1.93,
+        "color": "tw_pink_300"
+    },
+    "Tl": {
+        "name": "thallium",
+        "atomic_number": 81,
+        "block": "p",
+        "group": 13,
+        "period": 6,
+        "vdw": 1.96,
+        "color": "tw_pink_300"
+    },
+    "C": {
+        "name": "carbon",
+        "atomic_number": 6,
+        "block": "p",
+        "group": 14,
+        "period": 2,
+        "vdw": 1.7,
+        "color": "tw_gray_400"
+    },
+    "Si": {
+        "name": "silicon",
+        "atomic_number": 14,
+        "block": "p",
+        "group": 14,
+        "period": 3,
+        "vdw": 2.1,
+        "color": "tw_orange_300"
+    },
+    "Ge": {
+        "name": "germanium",
+        "atomic_number": 32,
+        "block": "p",
+        "group": 14,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_teal_300"
+    },
+    "Sn": {
+        "name": "tin",
+        "atomic_number": 50,
+        "block": "p",
+        "group": 14,
+        "period": 5,
+        "vdw": 2.17,
+        "color": "tw_teal_300"
+    },
+    "Pb": {
+        "name": "lead",
+        "atomic_number": 82,
+        "block": "p",
+        "group": 14,
+        "period": 6,
+        "vdw": 2.02,
+        "color": "tw_teal_300"
+    },
+    "N": {
+        "name": "nitrogen",
+        "atomic_number": 7,
+        "block": "p",
+        "group": 15,
+        "period": 2,
+        "vdw": 1.55,
+        "color": "tw_indigo_500"
+    },
+    "P": {
+        "name": "phosphorus",
+        "atomic_number": 15,
+        "block": "p",
+        "group": 15,
+        "period": 3,
+        "vdw": 1.8,
+        "color": "tw_orange_400"
+    },
+    "As": {
+        "name": "arsenic",
+        "atomic_number": 33,
+        "block": "p",
+        "group": 15,
+        "period": 4,
+        "vdw": 1.85,
+        "color": "tw_fuchsia_300"
+    },
+    "Sb": {
+        "name": "antimony",
+        "atomic_number": 51,
+        "block": "p",
+        "group": 15,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_fuchsia_300"
+    },
+    "Bi": {
+        "name": "bismuth",
+        "atomic_number": 83,
+        "block": "p",
+        "group": 15,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_fuchsia_300"
+    },
+    "O": {
+        "name": "oxygen",
+        "atomic_number": 8,
+        "block": "p",
+        "group": 16,
+        "period": 2,
+        "vdw": 1.52,
+        "color": "tw_rose_500"
+    },
+    "S": {
+        "name": "sulfur",
+        "atomic_number": 16,
+        "block": "p",
+        "group": 16,
+        "period": 3,
+        "vdw": 1.8,
+        "color": "tw_amber_400"
+    },
+    "Se": {
+        "name": "selenium",
+        "atomic_number": 34,
+        "block": "p",
+        "group": 16,
+        "period": 4,
+        "vdw": 1.9,
+        "color": "tw_orange_400"
+    },
+    "Te": {
+        "name": "tellurium",
+        "atomic_number": 52,
+        "block": "p",
+        "group": 16,
+        "period": 5,
+        "vdw": 2.06,
+        "color": "tw_orange_400"
+    },
+    "Po": {
+        "name": "polonium",
+        "atomic_number": 84,
+        "block": "p",
+        "group": 16,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_orange_300"
+    },
+    "F": {
+        "name": "fluorine",
+        "atomic_number": 9,
+        "block": "p",
+        "group": 17,
+        "period": 2,
+        "vdw": 1.47,
+        "color": "tw_cyan_400"
+    },
+    "Cl": {
+        "name": "chlorine",
+        "atomic_number": 17,
+        "block": "p",
+        "group": 17,
+        "period": 3,
+        "vdw": 1.75,
+        "color": "tw_lime_400"
+    },
+    "Br": {
+        "name": "bromine",
+        "atomic_number": 35,
+        "block": "p",
+        "group": 17,
+        "period": 4,
+        "vdw": 1.85,
+        "color": "tw_red_400"
+    },
+    "I": {
+        "name": "iodine",
+        "atomic_number": 53,
+        "block": "p",
+        "group": 17,
+        "period": 5,
+        "vdw": 1.98,
+        "color": "tw_purple_400"
+    },
+    "At": {
+        "name": "astatine",
+        "atomic_number": 85,
+        "block": "p",
+        "group": 17,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_purple_400"
+    },
+    "He": {
+        "name": "helium",
+        "atomic_number": 2,
+        "block": "s",
+        "group": 18,
+        "period": 1,
+        "vdw": 1.4,
+        "color": "tw_sky_50"
+    },
+    "Ne": {
+        "name": "neon",
+        "atomic_number": 10,
+        "block": "p",
+        "group": 18,
+        "period": 2,
+        "vdw": 1.54,
+        "color": "tw_sky_300"
+    },
+    "Ar": {
+        "name": "argon",
+        "atomic_number": 18,
+        "block": "p",
+        "group": 18,
+        "period": 3,
+        "vdw": 1.88,
+        "color": "tw_sky_300"
+    },
+    "Kr": {
+        "name": "krypton",
+        "atomic_number": 36,
+        "block": "p",
+        "group": 18,
+        "period": 4,
+        "vdw": 2.02,
+        "color": "tw_sky_400"
+    },
+    "Xe": {
+        "name": "xenon",
+        "atomic_number": 54,
+        "block": "p",
+        "group": 18,
+        "period": 5,
+        "vdw": 2.16,
+        "color": "tw_sky_400"
+    },
+    "Rn": {
+        "name": "radon",
+        "atomic_number": 86,
+        "block": "p",
+        "group": 18,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_400"
+    },
+    "Sc": {
+        "name": "scandium",
+        "atomic_number": 21,
+        "block": "d",
+        "group": 3,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_slate_100"
+    },
+    "Y": {
+        "name": "yttrium",
+        "atomic_number": 39,
+        "block": "d",
+        "group": 3,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_sky_50"
+    },
+    "La": {
+        "name": "lanthanum",
+        "atomic_number": 57,
+        "block": "d",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_200"
+    },
+    "Ac": {
+        "name": "actinium",
+        "atomic_number": 89,
+        "block": "d",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_sky_300"
+    },
+    "Ti": {
+        "name": "titanium",
+        "atomic_number": 22,
+        "block": "d",
+        "group": 4,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_gray_300"
+    },
+    "Zr": {
+        "name": "zirconium",
+        "atomic_number": 40,
+        "block": "d",
+        "group": 4,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_slate_200"
+    },
+    "Hf": {
+        "name": "hafnium",
+        "atomic_number": 72,
+        "block": "d",
+        "group": 4,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_300"
+    },
+    "Rf": {
+        "name": "rutherfordium",
+        "atomic_number": 104,
+        "block": "d",
+        "group": 4,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_600"
+    },
+    "V": {
+        "name": "vanadium",
+        "atomic_number": 23,
+        "block": "d",
+        "group": 5,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_slate_400"
+    },
+    "Nb": {
+        "name": "niobium",
+        "atomic_number": 41,
+        "block": "d",
+        "group": 5,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_slate_300"
+    },
+    "Ta": {
+        "name": "tantalum",
+        "atomic_number": 73,
+        "block": "d",
+        "group": 5,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_300"
+    },
+    "Db": {
+        "name": "dubnium",
+        "atomic_number": 105,
+        "block": "d",
+        "group": 5,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_700"
+    },
+    "Cr": {
+        "name": "chromium",
+        "atomic_number": 24,
+        "block": "d",
+        "group": 6,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_slate_300"
+    },
+    "Mo": {
+        "name": "molybdenum",
+        "atomic_number": 42,
+        "block": "d",
+        "group": 6,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_teal_300"
+    },
+    "W": {
+        "name": "tungsten",
+        "atomic_number": 74,
+        "block": "d",
+        "group": 6,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_500"
+    },
+    "Sg": {
+        "name": "seaborgium",
+        "atomic_number": 106,
+        "block": "d",
+        "group": 6,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_700"
+    },
+    "Mn": {
+        "name": "manganese",
+        "atomic_number": 25,
+        "block": "d",
+        "group": 7,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_violet_300"
+    },
+    "Tc": {
+        "name": "technetium",
+        "atomic_number": 43,
+        "block": "d",
+        "group": 7,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_teal_400"
+    },
+    "Re": {
+        "name": "rhenium",
+        "atomic_number": 75,
+        "block": "d",
+        "group": 7,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_blue_600"
+    },
+    "Bh": {
+        "name": "bohrium",
+        "atomic_number": 107,
+        "block": "d",
+        "group": 7,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_700"
+    },
+    "Fe": {
+        "name": "iron",
+        "atomic_number": 26,
+        "block": "d",
+        "group": 8,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_orange_400"
+    },
+    "Ru": {
+        "name": "ruthenium",
+        "atomic_number": 44,
+        "block": "d",
+        "group": 8,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_teal_400"
+    },
+    "Os": {
+        "name": "osmium",
+        "atomic_number": 76,
+        "block": "d",
+        "group": 8,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_blue_700"
+    },
+    "Hs": {
+        "name": "hassium",
+        "atomic_number": 108,
+        "block": "d",
+        "group": 8,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_700"
+    },
+    "Co": {
+        "name": "cobalt",
+        "atomic_number": 27,
+        "block": "d",
+        "group": 9,
+        "period": 4,
+        "vdw": 2.0,
+        "color": "tw_rose_300"
+    },
+    "Rh": {
+        "name": "rhodium",
+        "atomic_number": 45,
+        "block": "d",
+        "group": 9,
+        "period": 5,
+        "vdw": 2.0,
+        "color": "tw_teal_600"
+    },
+    "Ir": {
+        "name": "iridium",
+        "atomic_number": 77,
+        "block": "d",
+        "group": 9,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_indigo_700"
+    },
+    "Mt": {
+        "name": "meitnerium",
+        "atomic_number": 109,
+        "block": "d",
+        "group": 9,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_800"
+    },
+    "Ni": {
+        "name": "nickel",
+        "atomic_number": 28,
+        "block": "d",
+        "group": 10,
+        "period": 4,
+        "vdw": 1.63,
+        "color": "tw_emerald_400"
+    },
+    "Pd": {
+        "name": "palladium",
+        "atomic_number": 46,
+        "block": "d",
+        "group": 10,
+        "period": 5,
+        "vdw": 1.63,
+        "color": "tw_teal_700"
+    },
+    "Pt": {
+        "name": "platinum",
+        "atomic_number": 78,
+        "block": "d",
+        "group": 10,
+        "period": 6,
+        "vdw": 1.72,
+        "color": "tw_slate_200"
+    },
+    "Ds": {
+        "name": "darmstadtium",
+        "atomic_number": 110,
+        "block": "d",
+        "group": 10,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_slate_200"
+    },
+    "Cu": {
+        "name": "copper",
+        "atomic_number": 29,
+        "block": "d",
+        "group": 11,
+        "period": 4,
+        "vdw": 1.4,
+        "color": "tw_orange_400"
+    },
+    "Ag": {
+        "name": "silver",
+        "atomic_number": 47,
+        "block": "d",
+        "group": 11,
+        "period": 5,
+        "vdw": 1.72,
+        "color": "tw_gray_300"
+    },
+    "Au": {
+        "name": "gold",
+        "atomic_number": 79,
+        "block": "d",
+        "group": 11,
+        "period": 6,
+        "vdw": 1.66,
+        "color": "tw_amber_400"
+    },
+    "Zn": {
+        "name": "zinc",
+        "atomic_number": 30,
+        "block": "d",
+        "group": 12,
+        "period": 4,
+        "vdw": 1.39,
+        "color": "tw_slate_400"
+    },
+    "Cd": {
+        "name": "cadmium",
+        "atomic_number": 48,
+        "block": "d",
+        "group": 12,
+        "period": 5,
+        "vdw": 1.58,
+        "color": "tw_amber_300"
+    },
+    "Hg": {
+        "name": "mercury",
+        "atomic_number": 80,
+        "block": "d",
+        "group": 12,
+        "period": 6,
+        "vdw": 1.55,
+        "color": "tw_slate_200"
+    },
+    "Ce": {
+        "name": "cerium",
+        "atomic_number": 58,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_gray_50"
+    },
+    "Pr": {
+        "name": "praseodymium",
+        "atomic_number": 59,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_lime_50"
+    },
+    "Nd": {
+        "name": "neodymium",
+        "atomic_number": 60,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_green_50"
+    },
+    "Pm": {
+        "name": "promethium",
+        "atomic_number": 61,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_emerald_100"
+    },
+    "Sm": {
+        "name": "samarium",
+        "atomic_number": 62,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_teal_100"
+    },
+    "Eu": {
+        "name": "europium",
+        "atomic_number": 63,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_cyan_100"
+    },
+    "Gd": {
+        "name": "gadolinium",
+        "atomic_number": 64,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_sky_100"
+    },
+    "Tb": {
+        "name": "terbium",
+        "atomic_number": 65,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_blue_100"
+    },
+    "Dy": {
+        "name": "dysprosium",
+        "atomic_number": 66,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_indigo_100"
+    },
+    "Ho": {
+        "name": "holmium",
+        "atomic_number": 67,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_violet_100"
+    },
+    "Er": {
+        "name": "erbium",
+        "atomic_number": 68,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_purple_100"
+    },
+    "Tm": {
+        "name": "thulium",
+        "atomic_number": 69,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_fuchsia_200"
+    },
+    "Yb": {
+        "name": "ytterbium",
+        "atomic_number": 70,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_pink_300"
+    },
+    "Lu": {
+        "name": "lutetium",
+        "atomic_number": 71,
+        "block": "f",
+        "group": 3,
+        "period": 6,
+        "vdw": 2.0,
+        "color": "tw_rose_400"
+    },
+    "Th": {
+        "name": "thorium",
+        "atomic_number": 90,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_blue_300"
+    },
+    "Pa": {
+        "name": "protactinium",
+        "atomic_number": 91,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_sky_400"
+    },
+    "U": {
+        "name": "uranium",
+        "atomic_number": 92,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 1.86,
+        "color": "tw_cyan_400"
+    },
+    "Np": {
+        "name": "neptunium",
+        "atomic_number": 93,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_sky_500"
+    },
+    "Pu": {
+        "name": "plutonium",
+        "atomic_number": 94,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_blue_500"
+    },
+    "Am": {
+        "name": "americium",
+        "atomic_number": 95,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_indigo_400"
+    },
+    "Cm": {
+        "name": "curium",
+        "atomic_number": 96,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_violet_400"
+    },
+    "Bk": {
+        "name": "berkelium",
+        "atomic_number": 97,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_purple_400"
+    },
+    "Cf": {
+        "name": "californium",
+        "atomic_number": 98,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_fuchsia_400"
+    },
+    "Es": {
+        "name": "einsteinium",
+        "atomic_number": 99,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_pink_400"
+    },
+    "Fm": {
+        "name": "fermium",
+        "atomic_number": 100,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_rose_400"
+    },
+    "Md": {
+        "name": "mendelevium",
+        "atomic_number": 101,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_rose_500"
+    },
+    "No": {
+        "name": "nobelium",
+        "atomic_number": 102,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_rose_600"
+    },
+    "Lr": {
+        "name": "lawrencium",
+        "atomic_number": 103,
+        "block": "f",
+        "group": 3,
+        "period": 7,
+        "vdw": 2.0,
+        "color": "tw_red_700"
+    }
+}

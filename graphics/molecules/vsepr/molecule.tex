@@ -1,0 +1,41 @@
+%% TikZ molecule (depth-grouped, tol=0.100)
+\begin{tikzpicture}[scale=1]
+
+  % Coordinates (depth-sorted)
+  \coordinate (A4) at (-0.539,0.228);
+  \coordinate (A7) at (0.539,0.228);
+  \coordinate (A5) at (0.000,-0.711);
+  \coordinate (A1) at (0.000,0.000);
+  \coordinate (A3) at (0.000,0.799);
+  \coordinate (A2) at (0.644,-0.272);
+  \coordinate (A6) at (-0.644,-0.272);
+
+  % Nodes for this depth group
+  \node (A4) [ball={vdw=0.140,color=tw-cyan-400}] at (A4) {};
+  \node (A7) [ball={vdw=0.140,color=tw-cyan-400}] at (A7) {};
+  % Bonds for this depth group
+  \bond[0.108cm]{A4}[0.143cm]{A1};
+  \bond[0.108cm]{A7}[0.143cm]{A1};
+
+  % Nodes for this depth group
+  \node (A5) [ball={vdw=0.144,color=tw-cyan-400}] at (A5) {};
+  % Bonds for this depth group
+  \bond[0.131cm]{A5}[0.169cm]{A1};
+
+  % Nodes for this depth group
+  \node (A1) [ball={vdw=0.187,color=tw-amber-400}] at (A1) {};
+  % Bonds for this depth group
+  \bond[0.143cm]{A1}[0.128cm]{A2};
+  \bond[0.169cm]{A1}[0.147cm]{A3};
+  \bond[0.143cm]{A1}[0.128cm]{A6};
+
+  % Nodes for this depth group
+  \node (A3) [ball={vdw=0.162,color=tw-cyan-400}] at (A3) {};
+  % Bonds for this depth group
+
+  % Nodes for this depth group
+  \node (A2) [ball={vdw=0.167,color=tw-cyan-400}] at (A2) {};
+  \node (A6) [ball={vdw=0.167,color=tw-cyan-400}] at (A6) {};
+  % Bonds for this depth group
+
+\end{tikzpicture}
