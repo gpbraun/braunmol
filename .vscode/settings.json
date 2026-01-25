@@ -19,10 +19,6 @@
   "editor.formatOnSave": true,
   // CONFIGURAÕES DAS LINGUAGENS
   "python.analysis.typeCheckingMode": "off",
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.diagnosticSeverityOverrides": {
-    "reportMissingImports": "none"
-  },
   "[python]": {
     "editor.tabSize": 4,
     "editor.formatOnSave": true,

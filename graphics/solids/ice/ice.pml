@@ -1,17 +1,15 @@
 ################################
-# SF6.pml
+# ice.pml
 # 
-# Gabriel Braun, 2025
+# Gabriel Braun, 2026
 ################################
 
-load SF6.sdf
+set orthoscopic, 1
+
+load_cell ice.cif, reps=2-1-1
 hide everything
 
 show_bas
-
-set_view
-turn y, 45
-turn x, 25
+add_cell
 
 save_png
-save_tikz

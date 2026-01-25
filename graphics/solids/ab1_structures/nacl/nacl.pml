@@ -4,14 +4,13 @@
 # Gabriel Braun, 2026
 ################################
 
-set orthoscopic, 1
-
 load_cell nacl.cif
 hide everything
 
-show_ionic sticks=1
+show_ion sticks=1
 add_cell
 
+set orthoscopic, 1
 set_view
 turn y, 90
 turn y, -20

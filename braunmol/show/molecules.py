@@ -10,7 +10,6 @@ from pymol import cmd
 @cmd.extend
 def show_vdw(
     mol_obj=None,
-    spheres="large",
     _self=cmd,
 ):
     """
@@ -20,40 +19,61 @@ def show_vdw(
     """
     mol_obj = mol_obj or _self.get_object_list()[0]
 
-    cmd.show("spheres", mol_obj)
+    _self.show("spheres", mol_obj)
 
-    cmd.set("sphere_scale", 0.8, mol_obj)
-    cmd.set("sphere_scale", 0.6, f"{mol_obj} and elem H")
+    _self.set("sphere_scale", 0.8, mol_obj)
+    _self.set("sphere_scale", 0.6, f"{mol_obj} and elem H")
 
 
 @cmd.extend
 def show_bas(
     mol_obj=None,
-    spheres="large",
     _self=cmd,
 ):
     """
     Representação: Ball and Stick.
 
-    >>> PyMOL> show_bas [ mol_obj [, shperes ] ]
+    >>> PyMOL> show_bas [ mol_obj ]
     """
     mol_obj = mol_obj or _self.get_object_list()[0]
 
-    cmd.show("sticks", mol_obj)
-    cmd.show("spheres", mol_obj)
+    _self.show("sticks", mol_obj)
+    _self.show("spheres", mol_obj)
 
     # configurações: sticks
-    cmd.set("stick_radius", 0.10, mol_obj)
-    cmd.set("stick_h_scale", 0.80, mol_obj)
-    cmd.set("stick_color", "white", mol_obj)
+    _self.set("stick_radius", 0.10, mol_obj)
+    _self.set("stick_h_scale", 0.80, mol_obj)
+    _self.set("stick_color", "white", mol_obj)
 
     # configurações: balls
-    if spheres == "large":
-        cmd.set("sphere_scale", 0.20, mol_obj)
-        cmd.set("sphere_scale", 0.17, f"{mol_obj} and elem H")
-    if spheres == "small":
-        cmd.set("sphere_scale", 0.17, mol_obj)
-        cmd.set("sphere_scale", 0.14, f"{mol_obj} and elem H")
+    _self.set("sphere_scale", 0.20, mol_obj)
+    _self.set("sphere_scale", 0.17, f"{mol_obj} and elem H")
+
+
+@cmd.extend
+def show_ion(
+    mol_obj=None,
+    spheres=True,
+    sticks=False,
+    _self=cmd,
+):
+    """
+    Representa: rede de íons.
+
+    >>> PyMOL> show_ionic [ mol_obj [, spheres [, sticks ]]]
+    """
+    mol_obj = mol_obj or _self.get_object_list()[0]
+
+    _self.set("sphere_scale", 0.20, mol_obj)
+
+    _self.set("stick_radius", 0.075, mol_obj)
+    _self.set("stick_h_scale", 1.00, mol_obj)
+    _self.set("stick_color", -1, mol_obj)
+
+    if int(spheres):
+        _self.show("spheres", mol_obj)
+    if int(sticks):
+        _self.show("sticks", mol_obj)
 
 
 @cmd.extend

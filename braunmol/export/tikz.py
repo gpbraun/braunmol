@@ -211,7 +211,7 @@ class TikzMolecule:
 
 # ─────────────────── PyMOL command hook ──────────────────
 @cmd.extend
-def save_as_tikz(file_name=None, mode="2d"):
+def save_tikz(file_name=None, mode="2d"):
     """
     save_as_tikz <selection> , <file.tex> , 0|1  (0 = 2-D, 1 = 3-D).
     """

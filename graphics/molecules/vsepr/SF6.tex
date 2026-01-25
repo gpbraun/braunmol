@@ -1,0 +1,34 @@
+\begin{tikzpicture}[xscale=\molscale,yscale=\molscale]
+%% coordinates
+\coordinate (A4) at (-0.593,0.251);
+\coordinate (A7) at (0.593,0.251);
+\coordinate (A5) at (0.000,-0.766);
+\coordinate (A1) at (0.000,0.000);
+\coordinate (A3) at (0.000,0.792);
+\coordinate (A2) at (0.624,-0.264);
+\coordinate (A6) at (-0.624,-0.264);
+
+%% nodes
+\node (A4) [ball={vdw=0.154,color=tw-cyan-400}] at (A4) {};
+\node (A7) [ball={vdw=0.154,color=tw-cyan-400}] at (A7) {};
+%% bonds
+\bond[0.148cm]{A1}[0.118cm]{A4};
+\bond[0.148cm]{A1}[0.118cm]{A7};
+%% nodes
+\node (A5) [ball={vdw=0.155,color=tw-cyan-400}] at (A5) {};
+%% bonds
+\bond[0.175cm]{A1}[0.141cm]{A5};
+%% nodes
+\node (A1) [ball={vdw=0.193,color=tw-amber-400}] at (A1) {};
+%% bonds
+\bond[0.148cm]{A1}[0.124cm]{A2};
+\bond[0.175cm]{A1}[0.146cm]{A3};
+\bond[0.148cm]{A1}[0.124cm]{A6};
+%% nodes
+\node (A3) [ball={vdw=0.161,color=tw-cyan-400}] at (A3) {};
+%% bonds
+%% nodes
+\node (A2) [ball={vdw=0.162,color=tw-cyan-400}] at (A2) {};
+\node (A6) [ball={vdw=0.162,color=tw-cyan-400}] at (A6) {};
+%% bonds
+\end{tikzpicture}

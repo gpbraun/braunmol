@@ -6,11 +6,17 @@ Gabriel Braun, 2026
 
 import tempfile
 from dataclasses import dataclass
-from itertools import combinations, product
+from itertools import combinations
 from pathlib import Path
 
 import numpy as np
 from pymatgen.analysis.bond_valence import BVAnalyzer
+from pymatgen.analysis.local_env import (
+    CrystalNN,
+    MinimumVIRENN,
+    ValenceIonicRadiusEvaluator,
+)
+from pymatgen.core.periodic_table import Element
 from pymatgen.core.structure import Molecule, Structure
 from pymol import cgo, cmd
 
@@ -38,7 +44,7 @@ class CellRegistry:
 
 def _cell_registry(_self) -> CellRegistry:
     """
-    Singleton guloso associado ao objeto cmd do PyMOL.
+    Singleton associado ao objeto cmd do PyMOL.
     """
     reg = getattr(_self, "_cell_registry", None)
     if reg is None:
@@ -71,7 +77,10 @@ def structure_to_molecule(structure, repeats):
     for site in structure.make_supercell(repeats).sites:
         for frac_coords in get_pb_frac_coords(site.frac_coords):
             coords = structure.lattice.get_cartesian_coords(frac_coords)
-            molecule.append(site.specie, coords)
+            if hasattr(molecule, "specie"):
+                molecule.append(site.specie, coords)
+            elif hasattr(molecule, "species"):
+                molecule.append(site.species, coords)
 
     return molecule
 
@@ -105,7 +114,7 @@ def load_cell(
     # cria um arquivo temporário e carrega no PyMOL
     tmp = tempfile.NamedTemporaryFile(suffix=".mol")
     molecule.to(tmp.name)
-    cmd.load(tmp.name, mol_obj, **kwargs)
+    _self.load(tmp.name, mol_obj, **kwargs)
     tmp.close()
 
     # ajusta os raios iônicos e cargas formais
@@ -122,6 +131,9 @@ def load_cell(
     # ajusta as ligações
     _self.unbond(mol_obj, mol_obj)
     for (i, si), (j, sj) in combinations(enumerate(molecule.sites, 1), 2):
+        if int(si.specie.oxi_state) * int(sj.specie.oxi_state) > 0:
+            continue
+
         try:
             cutoff = si.specie.ionic_radius + sj.specie.ionic_radius
             if si.distance(sj) < cutoff:
@@ -148,12 +160,13 @@ def add_cell(
     mol_obj = mol_obj or _self.get_object_list()[0]
     cll_obj = cll_obj or f"{mol_obj}_cell"
 
+    # recupera os parâmetros da rede
     reg = _cell_registry(_self)
     cell_info = reg.get(mol_obj)
     lattice = cell_info.lattice
     repeats = cell_info.repeats
 
-    fracs = np.array(list(product([0, 1], repeat=3)))
+    fracs = np.indices((2, 2, 2)).reshape(3, -1).T
     corners = lattice.get_cartesian_coords(fracs)
     edges = [
         (i, j)
@@ -174,30 +187,3 @@ def add_cell(
 
     _self.load_cgo(cell_cgo, cll_obj)
     _self.show("cgo", cll_obj)
-
-
-@cmd.extend
-def show_ionic(
-    mol_obj=None,
-    spheres=True,
-    sticks=False,
-    _self=cmd,
-):
-    """
-    Representa: rede de íons.
-
-    >>> PyMOL> show_ionic [ mol_obj [, spheres [, sticks ]]]
-    """
-    mol_obj = mol_obj or _self.get_object_list()[0]
-
-    _self.set("sphere_scale", 0.20, mol_obj)
-
-    _self.set("stick_radius", 0.07, mol_obj)
-    _self.set("stick_h_scale", 1.00, mol_obj)
-    _self.set("stick_color", -1, mol_obj)
-
-    if spheres:
-        _self.show("spheres", mol_obj)
-
-    if sticks:
-        _self.show("sticks", mol_obj)
