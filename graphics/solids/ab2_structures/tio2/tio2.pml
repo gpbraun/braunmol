@@ -9,12 +9,12 @@ set orthoscopic, 1
 load_cell tio2.cif
 hide everything
 
-show_ionic sticks=1
+show_ion sticks=1
 add_cell
 
+set_view
 turn x, 90
 turn y, -20
 turn x, 15
 
-set_camera
 save_png

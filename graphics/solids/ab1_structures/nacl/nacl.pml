@@ -4,7 +4,7 @@
 # Gabriel Braun, 2026
 ################################
 
-load_cell nacl.cif
+load_cell nacl.cif, reps=1-1-1
 hide everything
 
 show_ion sticks=1
