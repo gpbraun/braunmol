@@ -32,7 +32,7 @@ DEFAULT_CONFIG = {
     "specular": 1,
     "reflect": 0.1,
     "ray_trace_mode": 1,
-    "ray_trace_gain": 4,
+    "ray_trace_gain": 3,
     "ray_opaque_background": 0,
 }
 

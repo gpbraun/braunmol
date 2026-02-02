@@ -22,7 +22,7 @@ def show_vdw(
     _self.show("spheres", mol_obj)
 
     _self.set("sphere_scale", 0.8, mol_obj)
-    _self.set("sphere_scale", 0.6, f"{mol_obj} and elem H")
+    _self.set("sphere_scale", 0.7, f"{mol_obj} and elem H")
 
 
 @cmd.extend
@@ -92,8 +92,8 @@ def add_vdw(
 
     _self.create(vdw_obj, mol_obj)
 
-    _self.set("sphere_scale", 1.0, f"{vdw_obj} and elem H")
     _self.set("sphere_scale", 0.8, vdw_obj)
+    _self.set("sphere_scale", 0.7, f"{vdw_obj} and elem H")
 
     _self.hide("nonbonded", vdw_obj)
     _self.hide("lines", vdw_obj)
