@@ -10,6 +10,7 @@ from pymol import cmd
 @cmd.extend
 def show_vdw(
     mol_obj=None,
+    scale=1.0,
     _self=cmd,
 ):
     """
@@ -21,8 +22,9 @@ def show_vdw(
 
     _self.show("spheres", mol_obj)
 
-    _self.set("sphere_scale", 0.8, mol_obj)
-    _self.set("sphere_scale", 0.7, f"{mol_obj} and elem H")
+    _self.set("sphere_scale", float(scale), mol_obj)
+    if float(scale) < 0.95:
+        _self.set("sphere_scale", float(scale) * 0.9, f"{mol_obj} and elem H")
 
 
 @cmd.extend
@@ -80,6 +82,7 @@ def show_ion(
 def add_vdw(
     mol_obj=None,
     vdw_obj=None,
+    scale=1.0,
     _self=cmd,
 ):
     """
@@ -92,8 +95,9 @@ def add_vdw(
 
     _self.create(vdw_obj, mol_obj)
 
-    _self.set("sphere_scale", 0.8, vdw_obj)
-    _self.set("sphere_scale", 0.7, f"{vdw_obj} and elem H")
+    _self.set("sphere_scale", float(scale), mol_obj)
+    if float(scale) < 0.95:
+        _self.set("sphere_scale", float(scale) * 0.9, f"{mol_obj} and elem H")
 
     _self.hide("nonbonded", vdw_obj)
     _self.hide("lines", vdw_obj)

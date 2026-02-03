@@ -4,10 +4,10 @@
 # Gabriel Braun, 2026
 ################################
 
-load_cell nacl.cif, reps=1-1-1
+load_cell nacl.cif
 hide everything
 
-show_ion sticks=1
+show_ion
 add_cell
 
 set orthoscopic, 1
@@ -17,3 +17,4 @@ turn y, -20
 turn x, 15
 
 save_png
+# save_tikz cell=1
