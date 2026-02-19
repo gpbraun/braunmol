@@ -14,7 +14,7 @@ SIZE_CM = 10.0
 def set_view(
     selection: str | None = None,
     state: int = 1,
-    cm_per_a: float = 0.6,
+    cm_per_a: float = 0.7,
     buffer: float = 5.0,
     _self=cmd,
 ):
@@ -34,21 +34,31 @@ def set_view(
     _self.origin(selection, state=state)
 
     fov_deg = 20
-    fov_rad = np.radians(fov_deg)
+    fov_rad = np.deg2rad(float(fov_deg))
+    _self.set("field_of_view", fov_deg)
 
     zdist = (SIZE_CM / (2.0 * cm_per_a)) / np.tan(fov_rad / 2.0)
 
-    view = list(_self.get_view())
-    view[11] = -zdist
-    _self.set_view(view)
-    _self.set("field_of_view", fov_deg)
-    _self.clip("atoms", buffer, selection, state)
+    v = np.asarray(_self.get_view(), dtype=float)
+    v[9] = 0.0
+    v[10] = 0.0
+    v[11] = -zdist
+    _self.set_view(v.tolist())
 
-    # Compute after clip(), since it can change the front plane distance (view[15]).
-    v2 = np.asarray(_self.get_view(), dtype=float)
-    front = float(v2[15])
+    v_fixed = np.asarray(_self.get_view(), dtype=float)
 
-    stored.tikz_angstrom_cm = SIZE_CM / (2.0 * front * np.tan(fov_rad / 2.0))
+    _self.clip("atoms", float(buffer), selection, state)
+    v_clipped = np.asarray(_self.get_view(), dtype=float)
+
+    v_final = v_fixed.copy()
+    v_final[15:18] = v_clipped[15:18]
+    _self.set_view(v_final.tolist())
+
+    v_final = v_fixed.copy()
+    v_final[15:18] = v_clipped[15:18]
+    _self.set_view(v_final.tolist())
+
+    stored.tikz_angstrom_cm = float(cm_per_a)
 
     _self.set("orthoscopic", ortho_prev)
 
