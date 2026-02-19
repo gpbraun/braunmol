@@ -1,0 +1,11 @@
+HEADER
+REMARK Spartan '08 exported M0001
+HETATM    1 Cl   UNK  0001       0.000   0.000   0.381
+HETATM    2  F   UNK  0001      -1.686   0.000   0.276
+HETATM    3  F   UNK  0001       1.686   0.000   0.276
+HETATM    4  F   UNK  0001       0.000   0.000  -1.198
+CONECT    1    2    3    4
+CONECT    2    1
+CONECT    3    1
+CONECT    4    1
+END

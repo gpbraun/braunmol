@@ -20,7 +20,8 @@ def mep_surface(
     mep_cube,
     obj_name=None,
     den_level=0.02,
-    mep_range=[-0.10, 0.40],
+    low=-0.10,
+    high=0.40,
     cmap="Spectral",
     _self=cmd,
 ):
@@ -41,7 +42,7 @@ def mep_surface(
         f"__{obj_name}_ramp",
         mep_cube,
         color=[f"__{cmap}_{i}" for i in range(CMAP_COLOR_NUM)],
-        range=mep_range,
+        range=[float(low), float(high)],
     )
     _self.disable(f"__{obj_name}_ramp")
 

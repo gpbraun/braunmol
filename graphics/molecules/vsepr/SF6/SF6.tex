@@ -1,34 +1,24 @@
-\begin{tikzpicture}[xscale=\molscale,yscale=\molscale]
-%% coordinates
-\coordinate (A4) at (-0.593,0.251);
-\coordinate (A7) at (0.593,0.251);
-\coordinate (A5) at (0.000,-0.766);
-\coordinate (A1) at (0.000,0.000);
-\coordinate (A3) at (0.000,0.792);
-\coordinate (A2) at (0.624,-0.264);
-\coordinate (A6) at (-0.624,-0.264);
-
-%% nodes
-\node (A4) [ball={vdw=0.154,color=tw-cyan-400}] at (A4) {};
-\node (A7) [ball={vdw=0.154,color=tw-cyan-400}] at (A7) {};
-%% bonds
-\bond[0.148cm]{A1}[0.118cm]{A4};
-\bond[0.148cm]{A1}[0.118cm]{A7};
-%% nodes
-\node (A5) [ball={vdw=0.155,color=tw-cyan-400}] at (A5) {};
-%% bonds
-\bond[0.175cm]{A1}[0.141cm]{A5};
-%% nodes
-\node (A1) [ball={vdw=0.193,color=tw-amber-400}] at (A1) {};
-%% bonds
-\bond[0.148cm]{A1}[0.124cm]{A2};
-\bond[0.175cm]{A1}[0.146cm]{A3};
-\bond[0.148cm]{A1}[0.124cm]{A6};
-%% nodes
-\node (A3) [ball={vdw=0.161,color=tw-cyan-400}] at (A3) {};
-%% bonds
-%% nodes
-\node (A2) [ball={vdw=0.162,color=tw-cyan-400}] at (A2) {};
-\node (A6) [ball={vdw=0.162,color=tw-cyan-400}] at (A6) {};
-%% bonds
+\begin{tikzpicture}
+\begin{molecule}[angstrom=0.697cm]
+  \coordinate (F3) at (-0.953,0.403);
+  \coordinate (F6) at (0.953,0.403);
+  \coordinate (F4) at (0.000,-1.231);
+  \coordinate (S1) at (0.000,0.000);
+  \coordinate (F2) at (0.000,1.266);
+  \coordinate (F1) at (0.996,-0.421);
+  \coordinate (F5) at (-0.996,-0.421);
+  \atom[r=0.248,tw-cyan-400]{F3};
+  \atom[r=0.248,tw-cyan-400]{F6};
+  \atom[r=0.249,tw-cyan-400]{F4};
+  \bond[r=0.065,p=0.237,q=0.187]{S1}{F3};
+  \bond[r=0.065,p=0.237,q=0.187]{S1}{F6};
+  \bond[r=0.066,p=0.280,q=0.223]{S1}{F4};
+  \atom[r=0.310,tw-amber-400]{S1};
+  \bond[r=0.067,p=0.282,q=0.235]{S1}{F2};
+  \bond[r=0.067,p=0.239,q=0.202]{S1}{F1};
+  \bond[r=0.067,p=0.239,q=0.202]{S1}{F5};
+  \atom[r=0.257,tw-cyan-400]{F2};
+  \atom[r=0.259,tw-cyan-400]{F1};
+  \atom[r=0.259,tw-cyan-400]{F5};
+\end{molecule}
 \end{tikzpicture}
