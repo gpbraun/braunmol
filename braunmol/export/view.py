@@ -1,5 +1,5 @@
 """
-png.py
+view.py
 
 Gabriel Braun, 2026
 """
@@ -29,7 +29,7 @@ def get_centroid(
 def set_view(
     selection=None,
     state=1,
-    cm_per_a=0.7,
+    cm_per_a=0.75,
     buffer=10.0,
     fov=20.0,
     _self=cmd,
