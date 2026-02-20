@@ -1,0 +1,10 @@
+AX2E2 (bent, ~104.5° exemplar)
+ChatGPT VSEPR generator
+Idealized VSEPR geometry; A-X bond length = 1.5 (arbitrary units)
+  3  2  0  0  0  0  0  0  0  0  0999 V2000
+    0.0000    0.0000    0.0000 A   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1860    0.0000    0.9183 X   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1860    0.0000    0.9183 X   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+M  END

@@ -10,149 +10,127 @@ from pymol import cmd, stored
 SIZE_CM = 10.0
 
 
+def get_centroid(
+    selection: str,
+    state: int = 1,
+    _self=cmd,
+) -> np.ndarray:
+    """
+    Retorna: centro geométrico de uma seleção.
+    """
+    m = _self.get_model(selection, state=state)
+
+    coords = np.array([a.coord for a in m.atom], dtype=float)
+    centroid = coords.mean(axis=0)
+    return centroid
+
+
 @cmd.extend
 def set_view(
-    selection: str | None = None,
-    state: int = 1,
-    cm_per_a: float = 0.7,
-    buffer: float = 5.0,
+    selection=None,
+    state=1,
+    cm_per_a=0.7,
+    buffer=10.0,
+    fov=20.0,
     _self=cmd,
 ):
     """
-    Define distância fixa da câmera para gerar PNG e TikZ com escala consistente.
+    Define: posicionamento determinístico da câmera.
 
-    Stores only:
-      stored.tikz_angstrom_cm  -> value to use in \\begin{molecule}[angstrom=...cm]
+    >>> PyMOL> set_view
     """
     selection = selection or "all"
 
-    ortho_prev = _self.get_setting_int("orthoscopic")
+    ortho = _self.get_setting_int("orthoscopic")
     _self.set("orthoscopic", 0)
 
-    _self.orient(selection, state=state)
     _self.center(selection, state=state)
     _self.origin(selection, state=state)
 
-    fov_deg = 20
-    fov_rad = np.deg2rad(float(fov_deg))
-    _self.set("field_of_view", fov_deg)
+    _self.set("field_of_view", float(fov))
+    fov_rad = np.deg2rad(float(fov))
 
-    zdist = (SIZE_CM / (2.0 * cm_per_a)) / np.tan(fov_rad / 2.0)
+    # Fixed camera-to-center distance (Å)
+    zdist = (SIZE_CM / (2.0 * float(cm_per_a))) / np.tan(fov_rad / 2.0)
 
     v = np.asarray(_self.get_view(), dtype=float)
+    # Deterministic camera distance.
     v[9] = 0.0
     v[10] = 0.0
     v[11] = -zdist
+    # Set slab size.
+    v[15] = zdist - float(buffer)
+    v[16] = zdist + float(buffer)
+
     _self.set_view(v.tolist())
-
-    v_fixed = np.asarray(_self.get_view(), dtype=float)
-
-    _self.clip("atoms", float(buffer), selection, state)
-    v_clipped = np.asarray(_self.get_view(), dtype=float)
-
-    v_final = v_fixed.copy()
-    v_final[15:18] = v_clipped[15:18]
-    _self.set_view(v_final.tolist())
-
-    v_final = v_fixed.copy()
-    v_final[15:18] = v_clipped[15:18]
-    _self.set_view(v_final.tolist())
 
     stored.tikz_angstrom_cm = float(cm_per_a)
 
-    _self.set("orthoscopic", ortho_prev)
+    _self.set("orthoscopic", ortho)
 
 
 @cmd.extend
-def align_bond(axis: str, sel1: str, sel2: str, state: int = 1, quiet: int = 1):
+def align(
+    plane: str,
+    selection_1: str,
+    selection_2: str,
+    selection_3: str,
+    state: int = 1,
+    _self=cmd,
+):
     """
-    Rotate ONLY the camera (view) so that the vector centroid(sel1)->centroid(sel2)
-    aligns with a VIEW axis (+/- x,y,z). No translation: camera distance/center unchanged.
+    plane: xy, yx, xz, zx, yz, zy
 
-    PyMOL convention (per set_view docs):
-      - view[0:9] is a column-major (Fortran order) 3x3 rotation matrix
-      - it maps model/world -> camera axes
+    Uses the centroids of sele1/2/3. Rotates the CAMERA (view rotation only) so that:
+      - the three centroids lie in the given camera plane
+      - the line (sele1 -> sele2) aligns with the FIRST axis of the plane
+      - sele3 fixes the in-plane roll so it lies on the +SECOND axis side
+
+    >>> PyMOL> align
     """
-    ax = axis.strip().lower()
-    target = {
-        "x": np.array([1.0, 0.0, 0.0]),
-        "y": np.array([0.0, 1.0, 0.0]),
-        "z": np.array([0.0, 0.0, 1.0]),
-        "+x": np.array([1.0, 0.0, 0.0]),
-        "+y": np.array([0.0, 1.0, 0.0]),
-        "+z": np.array([0.0, 0.0, 1.0]),
-        "-x": np.array([-1.0, 0.0, 0.0]),
-        "-y": np.array([0.0, -1.0, 0.0]),
-        "-z": np.array([0.0, 0.0, -1.0]),
-    }.get(ax)
-    if target is None:
-        raise ValueError("axis must be one of: x,y,z,+x,+y,+z,-x,-y,-z")
+    p = plane.strip().lower()
+    a, b = p[0], p[1]
+    c = ({"x", "y", "z"} - {a, b}).pop()
 
-    c1 = cmd.get_coords(sel1, state=state)
-    c2 = cmd.get_coords(sel2, state=state)
-    if c1 is None or len(c1) == 0:
-        raise ValueError(f"Selection '{sel1}' has no atoms (state={state}).")
-    if c2 is None or len(c2) == 0:
-        raise ValueError(f"Selection '{sel2}' has no atoms (state={state}).")
+    # centroids
+    p1 = get_centroid(selection_1, state, _self)
+    p2 = get_centroid(selection_2, state, _self)
+    p3 = get_centroid(selection_3, state, _self)
 
-    p1 = c1.mean(axis=0)
-    p2 = c2.mean(axis=0)
-
+    # unit helpers (inline)
     v = p2 - p1
-    vn = np.linalg.norm(v)
-    if vn < 1e-12:
-        raise ValueError("The two centroids are identical (zero-length vector).")
-    v /= vn  # unit in world/model coordinates
+    v /= np.linalg.norm(v)
 
-    view = np.asarray(cmd.get_view(), dtype=float)
+    n = np.cross(p2 - p1, p3 - p1)
+    n /= np.linalg.norm(n)
 
-    # Correct PyMOL convention: column-major, world/model -> camera
-    R = view[:9].reshape(3, 3, order="F")
+    w = np.cross(n, v)
+    w /= np.linalg.norm(w)
 
-    # Bond vector in camera coordinates
-    w = R @ v
-    wn = np.linalg.norm(w)
-    if wn < 1e-12:
-        raise ValueError("Numerical issue: camera-space vector length ~ 0.")
-    w /= wn
+    # orient sign so that (p3 - p1) has positive projection on +b axis
+    if np.dot(p3 - p1, w) < 0.0:
+        n = -n
+        w = -w
 
-    # Construct minimal camera-space rotation S such that S @ w = target
-    dot = float(np.clip(w @ target, -1.0, 1.0))
-    cr = np.cross(w, target)
-    s = np.linalg.norm(cr)  # = sin(theta) for unit vectors
-    I = np.eye(3, dtype=float)
+    # build camera axes in model coordinates per requested plane ordering
+    # a-axis -> v, b-axis -> w, c-axis -> n
+    axis = {a: v, b: w, c: n}
+    ex, ey, ez = axis["x"], axis["y"], axis["z"]
 
-    if s < 1e-12:
-        if dot > 0.0:
-            S = I
-        else:
-            # 180° around any axis perpendicular to w: S = -I + 2uu^T
-            ref = (
-                np.array([1.0, 0.0, 0.0])
-                if abs(w[0]) < 0.9
-                else np.array([0.0, 1.0, 0.0])
-            )
-            u = np.cross(w, ref)
-            u /= np.linalg.norm(u)
-            S = -I + 2.0 * np.outer(u, u)
-    else:
-        u = cr / s  # unit axis
-        ux, uy, uz = u
-        K = np.array([[0.0, -uz, uy], [uz, 0.0, -ux], [-uy, ux, 0.0]], dtype=float)
-        # Rodrigues: cos=dot, sin=s, since theta = atan2(s, dot)
-        S = dot * I + (1.0 - dot) * np.outer(u, u) + s * K
+    # two plausible model->cam rotations; choose best for v->+a and n->+c
+    M1 = np.vstack([ex, ey, ez])
+    M2 = M1.T
 
-    # Rotate the camera: left-multiply in camera space. No translation update.
-    Rnew = S @ R
-    view[:9] = Rnew.reshape(-1, order="F")
-    cmd.set_view(view.tolist())
+    idx = {"x": 0, "y": 1, "z": 2}
+    ea = np.zeros(3)
+    ea[idx[a]] = 1.0
+    ec = np.zeros(3)
+    ec[idx[c]] = 1.0
 
-    if not int(quiet):
-        # verify
-        view2 = np.asarray(cmd.get_view(), dtype=float)
-        R2 = view2[:9].reshape(3, 3, order="F")
-        w2 = R2 @ v
-        w2 /= np.linalg.norm(w2)
-        score = float(np.clip(w2 @ target, -1.0, 1.0))
-        err = float(np.degrees(np.arccos(score)))
-        print(f"align_bond: axis={ax}, score={score:.6f}, err≈{err:.4f}°")
+    s1 = (M1 @ v).dot(ea) + (M1 @ n).dot(ec)
+    s2 = (M2 @ v).dot(ea) + (M2 @ n).dot(ec)
+    M = M1 if s1 >= s2 else M2
+
+    view = list(_self.get_view())
+    view[0:9] = M.reshape(9, order="F").tolist()
+    _self.set_view(view)

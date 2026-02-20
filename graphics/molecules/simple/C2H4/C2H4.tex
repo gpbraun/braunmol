@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+\begin{molecule}
+  \coordinate (C1) at (0.495,0.000);
+  \coordinate (C2) at (-0.495,0.000);
+  \coordinate (H1) at (-0.922,0.686);
+  \coordinate (H2) at (-0.922,-0.686);
+  \coordinate (H3) at (0.922,-0.686);
+  \coordinate (H4) at (0.922,0.686);
+  \bond[r=0.058,p=0.256,q=0.256]{C1}{C2};
+  \bond[r=0.046,p=0.256,q=0.154]{C1}{H3};
+  \bond[r=0.046,p=0.256,q=0.154]{C1}{H4};
+  \bond[r=0.046,p=0.256,q=0.154]{C2}{H1};
+  \bond[r=0.046,p=0.256,q=0.154]{C2}{H2};
+  \atom[r=0.154,tw-gray-300]{H1};
+  \atom[r=0.154,tw-gray-300]{H2};
+  \atom[r=0.154,tw-gray-300]{H3};
+  \atom[r=0.154,tw-gray-300]{H4};
+  \atom[r=0.256,tw-gray-400]{C1};
+  \atom[r=0.256,tw-gray-400]{C2};
+\end{molecule}
+\end{tikzpicture}

@@ -95,9 +95,8 @@ def add_vdw(
 
     _self.create(vdw_obj, mol_obj)
 
-    _self.set("sphere_scale", float(scale), mol_obj)
-    if float(scale) < 0.95:
-        _self.set("sphere_scale", float(scale) * 0.9, f"{mol_obj} and elem H")
+    _self.set("sphere_scale", float(scale), vdw_obj)
+    _self.set("sphere_scale", 0.9 * float(scale), f"{vdw_obj} and elem H")
 
     _self.hide("nonbonded", vdw_obj)
     _self.hide("lines", vdw_obj)
