@@ -149,6 +149,13 @@ class View:
 
 
 def _begin_molecule_line() -> str:
+    ang = getattr(stored, "tikz_angstrom_cm", None)
+    try:
+        ang = float(ang)
+    except Exception:
+        ang = float("nan")
+    if np.isfinite(ang) and ang > 0:
+        return rf"\begin{{molecule}}[angstrom={ang:.3f}cm]"
     return r"\begin{molecule}"
 
 
