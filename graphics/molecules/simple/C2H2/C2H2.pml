@@ -1,16 +1,16 @@
 ################################
-# H2O.pml
+# C2H2.pml
 # 
 # Gabriel Braun, 2025
 ################################
 
-load H2O.sdf
+load C2H2.mol
 hide everything
 
 show_bas
 
 orient
-set_view cm_per_a=0.8
+set_view
 
-save_png 
+save_png
 save_tikz

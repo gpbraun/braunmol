@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\begin{molecule}[angstrom=0.800cm]
+  \coordinate (H2) at (-0.583,0.083);
+  \coordinate (H1) at (0.583,0.083);
+  \coordinate (N1) at (-0.000,0.181);
+  \coordinate (H3) at (0.000,-0.357);
+  \atom[r=0.145,tw-gray-300]{H2};
+  \atom[r=0.145,tw-gray-300]{H1};
+  \bond[r=0.044,p=0.182,q=0.117]{N1}{H1};
+  \bond[r=0.044,p=0.182,q=0.117]{N1}{H2};
+  \atom[r=0.223,tw-indigo-500]{N1};
+  \bond[r=0.045,p=0.161,q=0.109]{N1}{H3};
+  \atom[r=0.150,tw-gray-300]{H3};
+\end{molecule}
+\end{tikzpicture}

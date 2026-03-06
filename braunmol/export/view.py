@@ -29,7 +29,7 @@ def get_centroid(
 def set_view(
     selection=None,
     state=1,
-    cm_per_a=0.75,
+    cm_per_a=0.80,
     buffer=10.0,
     fov=20.0,
     _self=cmd,
